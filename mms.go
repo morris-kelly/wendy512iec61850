@@ -2,8 +2,12 @@ package iec61850
 
 // #include <iec61850_client.h>
 import "C"
-import "unsafe"
-import "github.com/spf13/cast"
+
+import (
+	"unsafe"
+
+	"github.com/spf13/cast"
+)
 
 func toMmsValue(mmsType MmsType, value interface{}) (*C.MmsValue, error) {
 	var (

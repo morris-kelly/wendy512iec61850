@@ -2,6 +2,7 @@ package iec61850
 
 // #include <iec61850_server.h>
 import "C"
+
 import (
 	"os"
 	"unsafe"

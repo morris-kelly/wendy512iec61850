@@ -22,7 +22,7 @@ func TestCreateServerFromConfigFile(t *testing.T) {
 	t.Logf("Server start up")
 
 	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGKILL, syscall.SIGTERM)
+	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
 	<-sig
 	t.Logf("Server stop")
 	server.Stop()

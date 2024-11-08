@@ -2,6 +2,7 @@ package iec61850
 
 // #include <iec61850_client.h>
 import "C"
+
 import (
 	"fmt"
 	"sync/atomic"
@@ -131,7 +132,7 @@ func (c *Client) ReadFloat(objectRef string, fc FC) (float32, error) {
 	if err := GetIedClientError(clientError); err != nil {
 		return 0, err
 	}
-	//源码返回值是C的float，4byte，所以应返回float32，否则会出现其他问题
+	// 源码返回值是C的float，4byte，所以应返回float32，否则会出现其他问题
 	return float32(value), nil
 }
 
@@ -287,7 +288,6 @@ func (c *Client) GetLogicalDeviceList() DataModel {
 }
 
 func (c *Client) GetDAs(doRef string, das []DA) {
-
 	var clientError C.IedClientError
 
 	cdoRef := Go2CStr(doRef)
@@ -308,7 +308,6 @@ func (c *Client) GetDAs(doRef string, das []DA) {
 			c.GetDAs(daRef, das)
 		}
 	}
-
 }
 
 // ReadDataSet 读取DataSet

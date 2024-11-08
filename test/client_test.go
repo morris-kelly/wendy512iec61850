@@ -64,9 +64,9 @@ func doRead(t *testing.T, client *iec61850.Client, objectRef string, fc iec61850
 func TestGetLogicalDeviceList(t *testing.T) {
 	client, err := iec61850.NewClient(&iec61850.Settings{
 		Host:           "127.0.0.1",
-		Port:           10086,
-		ConnectTimeout: 10000,
-		RequestTimeout: 10000,
+		Port:           102,
+		ConnectTimeout: 1000,
+		RequestTimeout: 1000,
 	})
 	if err != nil {
 		panic(err)

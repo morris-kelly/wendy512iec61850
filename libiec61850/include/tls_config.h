@@ -3,7 +3,7 @@
  *
  * TLS Configuration API for protocol stacks using TCP/IP
  *
- * Copyright 2017-2024 Michael Zillgith
+ * Copyright 2017-2022 Michael Zillgith
  *
  * Abstraction layer for configuration of different TLS implementations
  *
@@ -17,7 +17,6 @@ extern "C" {
 #endif
 
 #include "hal_base.h"
-#include "tls_ciphers.h"
 
 /**
  * \file tls_config.h
@@ -91,7 +90,6 @@ typedef enum {
 #define TLS_EVENT_CODE_ALM_CERT_NOT_CONFIGURED 13
 #define TLS_EVENT_CODE_ALM_CERT_NOT_TRUSTED 14
 #define TLS_EVENT_CODE_ALM_NO_CIPHER 15
-#define TLS_EVENT_CODE_INF_SESSION_ESTABLISHED 16
 
 typedef struct sTLSConnection* TLSConnection;
 
@@ -304,23 +302,6 @@ TLSConfiguration_addCRLFromFile(TLSConfiguration self, const char* filename);
  */
 PAL_API void
 TLSConfiguration_resetCRL(TLSConfiguration self);
-
-/**
- * \brief Add an allowed ciphersuite to the list of allowed ciphersuites
- *
- * \param self the TLS configuration instance
- * \param ciphersuite the ciphersuite to add (IANA cipher suite ID)
- */
-PAL_API void
-TLSConfiguration_addCipherSuite(TLSConfiguration self, int ciphersuite);
-
-/**
- * \brief Clear the list of allowed ciphersuites
- *
- * \param self the TLS configuration instance
- */
-PAL_API void
-TLSConfiguration_clearCipherSuiteList(TLSConfiguration self);
 
 /**
  * Release all resource allocated by the TLSConfiguration instance

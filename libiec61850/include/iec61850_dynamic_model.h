@@ -39,8 +39,6 @@ extern "C" {
 /**
  * @defgroup DYNAMIC_MODEL General dynamic model creation functions
  *
- * \brief Functions to dynamically create IEC 61850 data models without using SCL or configuration files
- *
  * @{
  */
 
@@ -84,7 +82,7 @@ LIB61850_API void
 IedModel_destroy(IedModel* model);
 
 /**
- * \brief Create a new logical device and add it to the IED model
+ * \brief Create a new logical device model and add it to the IED model
  *
  * \param name the name of the new logical device
  * \param parent the parent IED model
@@ -94,17 +92,6 @@ IedModel_destroy(IedModel* model);
 LIB61850_API LogicalDevice*
 LogicalDevice_create(const char* name, IedModel* parent);
 
-/**
- * \brief Create a new logical device and add it to the IED model
- *
- * \param name the name of the new logical device
- * \param parent the parent IED model
- * \param ldName when not NULL functional naming is used for this LD (ldName <= 64 chars)
- *
- * \return the newly created LogicalDevice instance
- */
-LIB61850_API LogicalDevice*
-LogicalDevice_createEx(const char* inst, IedModel* parent, const char* ldName);
 
 /**
  * \brief Create a new logical mode  and add it to a logical device
@@ -118,12 +105,9 @@ LIB61850_API LogicalNode*
 LogicalNode_create(const char* name, LogicalDevice* parent);
 
 /**
- * \brief create a new data object or array data object and add it to a parent model node
+ * \brief create a new data object and add it to a parent model node
  *
  * The parent model node has to be of type DataObject or LogicalNode.
- * 
- * NOTE: When the data object is an array the array elements will also be created by this function.
- * This will result in child DataObject instances for each array element.
  *
  * \param name the name of the data object (e.h. "Mod", "Health" ...)
  * \param parent the parent model node
@@ -396,12 +380,6 @@ ReportControlBlock_getOwner(ReportControlBlock* self);
 LIB61850_API LogControlBlock*
 LogControlBlock_create(const char* name, LogicalNode* parent, const char* dataSetName, const char* logRef, uint8_t trgOps,
         uint32_t intgPd, bool logEna, bool reasonCode);
-
-LIB61850_API const char*
-LogControlBlock_getName(LogControlBlock* self);
-
-LIB61850_API LogicalNode*
-LogControlBlock_getParent(LogControlBlock* self);
 
 /**
  * \brief create a log (used by the IEC 61850 log service)

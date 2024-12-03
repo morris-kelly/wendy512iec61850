@@ -1019,20 +1019,6 @@ LIB61850_API MmsValue*
 MmsValue_decodeMmsData(uint8_t* buffer, int bufPos, int bufferLength, int* endBufPos);
 
 /**
- * \brief create a new MmsValue instance from a BER encoded MMS Data element (deserialize) with a defined maximum recursion depth
- *
- * \param buffer the buffer to read from
- * \param bufPos the start position of the mms value data in the buffer
- * \param bufferLength the length of the buffer
- * \param endBufPos the position in the buffer after the read MMS data element (NULL if not required)
- * \param maxDepth the maximum recursion depth
- *
- * \return the MmsValue instance created from the buffer
- */
-LIB61850_API MmsValue*
-MmsValue_decodeMmsDataMaxRecursion(uint8_t* buffer, int bufPos, int bufferLength, int* endBufPos, int maxDepth);
-
-/**
  * \brief Serialize the MmsValue instance as BER encoded MMS Data element
  *
  * \param self the MmsValue instance

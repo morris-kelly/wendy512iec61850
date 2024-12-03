@@ -12,6 +12,12 @@ type IedModel struct {
 	Model *C.IedModel
 }
 
+func NewIedModelFromPointer(model unsafe.Pointer) *IedModel {
+	return &IedModel{
+		Model: (*C.IedModel)(model),
+	}
+}
+
 func NewIedModel(name string) *IedModel {
 	cname := C.CString(name)
 	defer C.free(unsafe.Pointer(cname))

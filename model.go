@@ -9,19 +9,19 @@ import (
 )
 
 type IedModel struct {
-	model *C.IedModel
+	Model *C.IedModel
 }
 
 func NewIedModel(name string) *IedModel {
 	cname := C.CString(name)
 	defer C.free(unsafe.Pointer(cname))
 	return &IedModel{
-		model: C.IedModel_create(cname),
+		Model: C.IedModel_create(cname),
 	}
 }
 
 func (m *IedModel) Destroy() {
-	C.IedModel_destroy(m.model)
+	C.IedModel_destroy(m.Model)
 }
 
 func CreateModelFromConfigFileEx(filepath string) (*IedModel, error) {
@@ -34,7 +34,7 @@ func CreateModelFromConfigFileEx(filepath string) (*IedModel, error) {
 	// 释放内存
 	defer C.free(unsafe.Pointer(cFilepath))
 	model := &IedModel{
-		model: C.ConfigFileParser_createModelFromConfigFileEx(cFilepath),
+		Model: C.ConfigFileParser_createModelFromConfigFileEx(cFilepath),
 	}
 	return model, nil
 }
@@ -47,7 +47,7 @@ func (m *IedModel) CreateLogicalDevice(name string) *LogicalDevice {
 	cname := C.CString(name)
 	defer C.free(unsafe.Pointer(cname))
 	return &LogicalDevice{
-		device: C.LogicalDevice_create(cname, m.model),
+		device: C.LogicalDevice_create(cname, m.Model),
 	}
 }
 

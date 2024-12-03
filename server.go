@@ -11,7 +11,7 @@ type IedServer struct {
 // NewServer creates a new instance of the IedServer using the provided model.
 func NewServer(model *IedModel) *IedServer {
 	return &IedServer{
-		server: C.IedServer_create(model.model),
+		server: C.IedServer_create(model.Model),
 	}
 }
 

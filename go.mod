@@ -7,4 +7,4 @@ require (
 	golang.org/x/text v0.16.0
 )
 
-replace github.com/wendy512/iec61850 github.com/morris-kelly/wendy512iec61850
+replace github.com/wendy512/iec61850 => github.com/morris-kelly/wendy512iec61850 v0.0.3-0.20241204145212-697fa7847620

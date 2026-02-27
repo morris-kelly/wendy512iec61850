@@ -1,6 +1,7 @@
 FROM alpine:latest AS alpine
 
 RUN apk add --no-cache \
+    git \
     build-base \
     ca-certificates \
     cmake \

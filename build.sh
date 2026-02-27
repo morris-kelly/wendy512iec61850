@@ -11,7 +11,10 @@ echo "Downloading libiec61850 version ${MZ_VERSION} from MZ-Automation..."
 if [ -d "./libiec61850-repo" ]; then
     echo "Directory ./libiec61850-repo already exists. Skipping download."
 else
-    git clone -b v${MZ_VERSION} https://github.com/mz-automation/libiec61850.git ./libiec61850-repo
+    # git clone -b v${MZ_VERSION} https://github.com/mz-automation/libiec61850.git ./libiec61850-repo
+
+    # temporarily use morris-kelly's fork which patches the issues with the include files
+    git clone -b include-updates https://github.com/morris-kelly/libiec61850.git ./libiec61850-repo
 fi
 
 # add the third_party libraries

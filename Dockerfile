@@ -1,16 +1,6 @@
 FROM alpine:latest AS alpine
 
-RUN apk add --no-cache \
-    git \
-    build-base \
-    ca-certificates \
-    cmake \
-    autoconf \
-    automake \
-    libtool \
-    pkgconfig \
-    curl \
-    linux-headers
+RUN apk add --no-cache build-base linux-headers
 
 WORKDIR /app
 
@@ -22,14 +12,7 @@ WORKDIR /app/libiec61850-repo
 FROM debian:trixie AS debian
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    cmake \
-    git \
-    libtool \
-    autoconf \
-    automake \
-    pkg-config \
-    && rm -rf /var/lib/apt/lists/*
+    build-essential
 
 WORKDIR /app
 

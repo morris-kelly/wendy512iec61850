@@ -14,6 +14,25 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-COPY build.sh .
+COPY libiec61850-repo /app/libiec61850-repo
 
-CMD ["sh", "build.sh"]
+WORKDIR /app/libiec61850-repo
+
+# set up the debian image the same way
+FROM debian:trixie AS debian
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    libtool \
+    autoconf \
+    automake \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY libiec61850-repo /app/libiec61850-repo
+
+WORKDIR /app/libiec61850-repo

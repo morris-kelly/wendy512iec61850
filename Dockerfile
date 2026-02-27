@@ -11,6 +11,8 @@ RUN apk add --no-cache \
     curl \
     linux-headers
 
+WORKDIR /app
+
 COPY build.sh .
 
 CMD ["sh", "build.sh"]

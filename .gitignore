@@ -16,3 +16,4 @@ rebel.xml
 libiec61850-*
 mbedtls-*
 WpdPack*
+build/

@@ -26,15 +26,6 @@ services:
       - ./build:/build
     command: sh -c "mkdir -p /build/darwin_armv8 && cd /app/libiec61850-repo && make WITH_MBEDTLS=1 INSTALL_PREFIX=/build/darwin_armv8 install"
 
-  builder-alpine64:
-    build: 
-      context: .
-      target: alpine
-    platform: linux/amd64
-    volumes:
-      - ./build:/build
-    command: sh -c "mkdir -p /build/linux_alpine64 && cd /app/libiec61850-repo && make WITH_MBEDTLS=1 INSTALL_PREFIX=/build/linux_alpine64 install"
-
   builder-amd64:
     build: 
       context: .

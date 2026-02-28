@@ -8,11 +8,13 @@ import (
 	_ "github.com/wendy512/iec61850/libiec61850/linux_alpine64/include"
 	_ "github.com/wendy512/iec61850/libiec61850/linux_amd64/include"
 	_ "github.com/wendy512/iec61850/libiec61850/linux_arm64/include"
+	_ "github.com/wendy512/iec61850/libiec61850/linux_armv7/include"
 	_ "github.com/wendy512/iec61850/libiec61850/win64/include"
 
 	_ "github.com/wendy512/iec61850/libiec61850/darwin_armv8/lib"
 	_ "github.com/wendy512/iec61850/libiec61850/linux_alpine64/lib"
 	_ "github.com/wendy512/iec61850/libiec61850/linux_amd64/lib"
 	_ "github.com/wendy512/iec61850/libiec61850/linux_arm64/lib"
+	_ "github.com/wendy512/iec61850/libiec61850/linux_armv7/lib"
 	_ "github.com/wendy512/iec61850/libiec61850/win64/lib"
 )

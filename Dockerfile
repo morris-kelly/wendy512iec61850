@@ -8,3 +8,13 @@ WORKDIR /app
 COPY libiec61850-repo /app/libiec61850-repo
 
 WORKDIR /app/libiec61850-repo
+
+FROM alpine:latest AS alpine
+
+RUN apk add --no-cache build-base linux-headers
+
+WORKDIR /app
+
+COPY libiec61850-repo /app/libiec61850-repo
+
+WORKDIR /app/libiec61850-repo
